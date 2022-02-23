@@ -1,0 +1,292 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Resistance Calculator</title>
+<script language=JavaScript>
+<!--
+
+function showbox(target){
+(confirm('Since you are using an older version of Microsoft Internet Explorer, you should use the ActiveX version of this page.') ? location.href=target : "") }
+
+var browser=navigator.appName;
+Ver = parseInt(navigator.appVersion);
+
+function loadPage()
+   {
+	if (document.images == null) {
+           if (browser.substring(0, 9)== "Microsoft" && Ver < 4)
+	      showbox('calcvb.html');
+	   }
+   }
+
+function converta(obj, stripe1color) {
+obj.stripe1.value=stripe1color;
+if (stripe1color=='Black') {obj.col1result.value = "0"}
+else{
+if (stripe1color=='Brown') {obj.col1result.value = "1"}
+else{
+if (stripe1color=='Red') {obj.col1result.value = "2"}
+else{
+if (stripe1color=='Orange') {obj.col1result.value = "3"}
+else{
+if (stripe1color=='Yellow') {obj.col1result.value = "4"}
+else{
+if (stripe1color=='Green') {obj.col1result.value = "5"}
+else{
+if (stripe1color=='Blue') {obj.col1result.value = "6"}
+else{
+if (stripe1color=='Violet') {obj.col1result.value = "7"}
+else{
+if (stripe1color=='Gray') {obj.col1result.value = "8"}
+else {obj.col1result.value = "9"}
+}}}}}}}}
+Calc(obj);
+}
+
+function convertb(obj, stripe2color) {
+obj.stripe2.value=stripe2color;
+if (stripe2color=='Black') {obj.col2result.value = "0"}
+else{
+if (stripe2color=='Brown') {obj.col2result.value = "1"}
+else{
+if (stripe2color=='Red') {obj.col2result.value = "2"}
+else{
+if (stripe2color=='Orange') {obj.col2result.value = "3"}
+else{
+if (stripe2color=='Yellow') {obj.col2result.value = "4"}
+else{
+if (stripe2color=='Green') {obj.col2result.value = "5"}
+else{
+if (stripe2color=='Blue') {obj.col2result.value = "6"}
+else{
+if (stripe2color=='Violet') {obj.col2result.value = "7"}
+else{
+if (stripe2color=='Gray') {obj.col2result.value = "8"}
+else {obj.col2result.value = "9"}
+}}}}}}}}
+Calc(obj);
+}
+
+function convertc(obj, stripe3color) {
+obj.stripe3.value=stripe3color;
+if (stripe3color=='Black') {obj.col3result.value = "0"}
+else{
+if (stripe3color=='Brown') {obj.col3result.value = "1"}
+else{
+if (stripe3color=='Red') {obj.col3result.value = "2"}
+else{
+if (stripe3color=='Orange') {obj.col3result.value = "3"}
+else{
+if (stripe3color=='Yellow') {obj.col3result.value = "4"}
+else{
+if (stripe3color=='Green') {obj.col3result.value = "5"}
+else{
+if (stripe3color=='Blue') {obj.col3result.value = "6"}
+else{
+if (stripe3color=='Violet') {obj.col3result.value = "7"}
+else{
+if (stripe3color=='Gray') {obj.col3result.value = "8"}
+else {obj.col3result.value = "9"}
+}}}}}}}}
+Calc(obj);
+}
+
+function convertd(obj, tolcolor) {
+obj.tolerance.value=tolcolor;
+if (tolcolor=='Silver') {obj.tolresult.value = "10"}
+else{
+if (tolcolor=='Gold') {obj.tolresult.value = "5"}
+else{obj.tolresult.value = "20"}
+}
+Calc(obj);
+}
+
+function Calc(obj) {
+   Power=Math.pow(10,obj.col3result.value);
+   Answer=eval(obj.col1result.value+obj.col2result.value)*Power;
+   Error=Answer * obj.tolresult.value/100;
+   if (Answer>=1000000) {
+	 Answer=Answer/1000000;
+       Error=Error/1000000;
+       Units=" MOhms";}
+   else {
+   if (Answer>=1000) {
+	 Answer=Answer/1000;
+	 Error=Error/1000;
+	 Units=" kOhms";}
+   else{Units=" Ohms";}
+   }
+obj.result.value=Answer + " +/- " + Error + Units;
+}
+
+if (document.images)
+{
+black = new Image();
+black.src = "res/black.gif";
+brown = new Image();
+brown.src = "res/brown.gif";
+red = new Image();
+red.src = "res/red.gif";
+orange = new Image();
+orange.src = "res/orange.gif";
+yellow = new Image();
+yellow.src = "res/yellow.gif";
+green = new Image();
+green.src = "res/green.gif";
+blue = new Image();
+blue.src = "res/blue.gif";
+violet = new Image();
+violet.src = "res/violet.gif";
+gray = new Image();
+gray.src = "res/gray.gif";
+white = new Image();
+white.src = "res/white.gif";
+gold = new Image();
+gold.src = "res/gold.gif";
+silver = new Image();
+silver.src = "res/silver.gif";
+plainold = new Image();
+plainold.src = "res/plainold.gif";
+}
+
+// -->
+</script>
+
+<body onload="loadPage()" >
+<center>
+<h1>Color Coded Resistance Calculator</h1>
+<br><br><br><br><br><br>
+<form name="StripeForm">
+<table align=center cellspacing="1">
+<tr><td width=100 rowspan=12>&nbsp;<td>&nbsp;
+
+<td align=center><font size=+1>Stripe 1</font></td><td align=center><font size=+1>Stripe 2</font></td><td align=center><font size=+1>Stripe 3</font></td><td align=center><font size=+1>Tolerance</font></td>
+<tr><td>&nbsp;</td>
+<td align=center>
+<input type="text" name="stripe1" size=13 Value="Black"></td>
+<td align=center>
+<input type="text" name="stripe2" size=13 Value="Black"></td>
+<td align=center>
+<input type="text" name="stripe3" size=13 Value="Black"></td>
+<td align=center>
+<input type="text" name="tolerance" size=13 Value="No Band"></td>
+<tr><td bgcolor=#FFFFFF align=center>Black</td>
+<td bgcolor=#000000 align=center><input type="radio" value="Black" name="Stripe1"
+onClick="image1.src=black.src;converta(this.form, this.value)" CHECKED>
+
+<td bgcolor=#000000 align=center><input type="radio" value="Black" name="Stripe2"
+onClick="image2.src=black.src;convertb(this.form, this.value)" CHECKED>
+<td bgcolor=#000000 align=center><input type="radio" value="Black" name="Stripe3"
+onClick="image3.src=black.src;convertc(this.form, this.value)" CHECKED>
+<td bgcolor=#C0C0C0 align=center><input type="radio" value="Silver" name="Tolerance"
+onClick="tolimage.src=silver.src;convertd(this.form, this.value)">
+<td bgcolor=#FFFFFF align=center>Silver</td>
+<td width=100 rowspan=4>&nbsp;</td>
+<tr>
+<td bgcolor=#FFFFFF align=center>Brown</td>
+<td bgcolor=#8E2323 align=center><input type="radio" value="Brown" name="Stripe1"
+onClick="image1.src=brown.src;converta(this.form, this.value)">
+<td bgcolor=#8E2323 align=center><input type="radio" value="Brown" name="Stripe2"
+onClick="image2.src=brown.src;convertb(this.form, this.value)">
+<td bgcolor=#8E2323 align=center><input type="radio" value="Brown" name="Stripe3"
+onClick="image3.src=brown.src;convertc(this.form, this.value)">
+<td bgcolor=#FFD700 align=center><input type="radio" value="Gold" name="Tolerance"
+onClick="tolimage.src=gold.src;convertd(this.form, this.value)">
+<td bgcolor=#FFFFFF align=center>Gold</td>
+<tr>
+<td bgcolor=#FFFFFF align=center>Red</td>
+
+<td bgcolor=#FF0000 align=center><input type="radio" value="Red" name="Stripe1"
+onClick="image1.src=red.src;converta(this.form, this.value)">
+<td bgcolor=#FF0000 align=center><input type="radio" value="Red" name="Stripe2"
+onClick="image2.src=red.src;convertb(this.form, this.value)">
+<td bgcolor=#FF0000 align=center><input type="radio" value="Red" name="Stripe3"
+onClick="image3.src=red.src;convertc(this.form, this.value)">
+<td align=center><input type="radio" value="No Band" name="Tolerance"
+onClick="tolimage.src=plainold.src;convertd(this.form, this.value)" CHECKED>
+<td bgcolor=#FFFFFF align=center>No Band</td>
+<tr>
+<td bgcolor=#FFFFFF align=center>Orange</td>
+<td bgcolor=#FF8800 align=center><input type="radio" value="Orange" name="Stripe1"
+onClick="image1.src=orange.src;converta(this.form, this.value)">
+<td bgcolor=#FF8800 align=center><input type="radio" value="Orange" name="Stripe2"
+onClick="image2.src=orange.src;convertb(this.form, this.value)">
+<td bgcolor=#FF8800 align=center><input type="radio" value="Orange" name="Stripe3"
+onClick="image3.src=orange.src;convertc(this.form, this.value)">
+<tr>
+<td bgcolor=#FFFFFF align=center>Yellow</td>
+<td bgcolor=#FFFF00 align=center><input type="radio" value="Yellow" name="Stripe1"
+onClick="image1.src=yellow.src;converta(this.form, this.value)">
+<td bgcolor=#FFFF00 align=center><input type="radio" value="Yellow" name="Stripe2"
+onClick="image2.src=yellow.src;convertb(this.form, this.value)">
+
+<td bgcolor=#FFFF00 align=center><input type="radio" value="Yellow" name="Stripe3"
+onClick="image3.src=yellow.src;convertc(this.form, this.value)">
+<td>&nbsp;
+<td align=center rowspan=5 colspan=2 bgcolor=#000000 valign=top halign=right><font color=#FFFFFF size=+1><u>Result</u></font><p>
+<input type="text" name="col1result" size=2 value="0">
+<input type="text" name="col2result" size=2 value="0">
+<font color="#FFFFFF"> &#215 10^</font>
+<input type="text" name="col3result" size=2 value="0"><font
+color=#FFFFFF> &#177</font>
+<input type="text" name="tolresult" size=2 value="20"><font color=#FFFFFF>%</font><br>
+<font color=#FFFFFF>=</font>
+<input type="text" name="result" size=21 value="0">
+
+<table border=1 cellspacing="0" cellpadding="0" align=center bgcolor=#FFFFFF>
+<td><img src="res/leftres.gif"><img name="image1" src="res/black.gif"><img
+src="res/plainold.gif"><img src="res/black.gif" name="image2"><img
+src="res/plainold.gif"><img src="res/black.gif" name="image3"><img
+src="res/plainold.gif"><img src="res/plainold.gif"><img
+src="res/plainold.gif" name="tolimage"><img src="res/rightres.gif"></td>
+</table>
+<tr>
+<td bgcolor=#FFFFFF align=center>Green</td>
+<td bgcolor=#00CC00 align=center><input type="radio" value="Green" name="Stripe1"
+onClick="image1.src=green.src;converta(this.form, this.value)">
+<td bgcolor=#00CC00 align=center><input type="radio" value="Green" name="Stripe2"
+onClick="image2.src=green.src;convertb(this.form, this.value)">
+<td bgcolor=#00CC00 align=center><input type="radio" value="Green" name="Stripe3"
+onClick="image3.src=green.src;convertc(this.form, this.value)">
+<tr>
+<td bgcolor=#FFFFFF align=center>Blue</td>
+<td bgcolor=#0000CC align=center><input type="radio" value="Blue" name="Stripe1"
+onClick="image1.src=blue.src;converta(this.form, this.value)">
+<td bgcolor=#0000CC align=center><input type="radio" value="Blue" name="Stripe2"
+onClick="image2.src=blue.src;convertb(this.form, this.value)">
+<td bgcolor=#0000CC align=center><input type="radio" value="Blue" name="Stripe3"
+onClick="image3.src=blue.src;convertc(this.form, this.value)">
+<tr>
+<td bgcolor=#FFFFFF align=center>Violet</td>
+
+<td bgcolor=#FF00FF align=center><input type="radio" value="Violet"  name="Stripe1"
+onClick="image1.src=violet.src;converta(this.form, this.value)">
+<td bgcolor=#FF00FF align=center><input type="radio" value="Violet"  name="Stripe2"
+onClick="image2.src=violet.src;convertb(this.form, this.value)">
+<td bgcolor=#FF00FF align=center><input type="radio" value="Violet"  name="Stripe3"
+onClick="image3.src=violet.src;convertc(this.form, this.value)">
+<tr>
+<td bgcolor=#FFFFFF align=center>Gray</td>
+<td bgcolor=#CCCCCC align=center><input type="radio" value="Gray" name="Stripe1"
+onClick="image1.src=gray.src;converta(this.form, this.value)">
+<td bgcolor=#CCCCCC align=center><input type="radio" value="Gray" name="Stripe2"
+onClick="image2.src=gray.src;convertb(this.form, this.value)">
+<td bgcolor=#CCCCCC align=center><input type="radio" value="Gray" name="Stripe3"
+onClick="image3.src=gray.src;convertc(this.form, this.value)">
+<tr>
+<td bgcolor=#FFFFFF align=center>White</td>
+<td bgcolor=#FFFFFF align=center><input type="radio" value="White" name="Stripe1"
+onClick="image1.src=white.src;converta(this.form, this.value)">
+<td bgcolor=#FFFFFF align=center><input type="radio" value="White" name="Stripe2"
+onClick="image2.src=white.src;convertb(this.form, this.value)">
+<td bgcolor=#FFFFFF align=center><input type="radio" value="White" name="Stripe3"
+onClick="image3.src=white.src;convertc(this.form, this.value)">
+</td>
+</tr>
+
+</table>
+</form>
+<hr>
+</body>
+</html>
+

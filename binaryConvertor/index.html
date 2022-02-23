@@ -1,0 +1,45 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Binary Convertor</title>
+
+<body>
+<center>
+<h1> Decimal to Binary Convertor </h1>
+<br><br><br><br><br><br><br>
+</center>
+      <form>
+	<table border="0" width="100%" align="center">
+	<tr>
+	<td align="center">
+        <p><input type="text" name="dec" onBlur="hex.value=(this.value-0).toString(16);
+        									octal.value=parseInt(this.value-0).toString(8);
+        									bin.value=(this.value-0).toString(2);"><br>
+        (dec) </p>
+	</p>
+	<td align="center">
+        <p><input type="text" name="hex" onBlur="dec.value=parseInt(this.value,16);
+        									octal.value=parseInt(this.value,16).toString(8);
+        									bin.value=(parseInt(this.value,16)).toString(2)"><br>
+        (hex) </p>
+	</p>
+	<td align="center">
+        <p><input type="text" name="octal" onBlur="dec.value=parseInt(this.value,8);
+        									hex.value=parseInt(this.value,8).toString(16);
+        									bin.value=(parseInt(this.value,8)).toString(2)"><br>
+        (octal)</p>
+	<td align="center">
+        <p><input type="text" name="bin" onBlur="dec.value=parseInt(this.value,2);
+        									octal.value=parseInt(this.value,2).toString(8);
+        									hex.value=(parseInt(this.value,2)).toString(16)"><br>
+        (bin)</p>
+	</p>
+	</p>
+	</tr>
+
+	</table>
+      </form>
+</body>
+
+</html>

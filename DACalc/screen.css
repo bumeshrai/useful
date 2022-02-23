@@ -1,0 +1,134 @@
+/* CSS Document */
+/* 
+	smooth taste table styles
+	written by Thomas Opp http://www.yaway.de
+*/
+.bodytxt{
+font-size:12px;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+color:#333333;
+}
+.txt {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+
+
+
+	font-size:10px; height:12px;
+
+
+
+	font-weight:bold;
+	
+
+	text-align:right;
+	
+	width:25px;
+	color:#7B2342;
+
+
+
+}
+
+
+.totaltxt {
+border: 2px double #CCCCCC;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:10px; height:11px;
+color:#CC0000;
+background-color: #FFFFCC;
+font-weight: bolder;
+font-weight:bold;
+	text-align:right;
+
+
+
+}
+
+.taxtxt {
+border: 2px double #CCCCCC;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+
+
+
+	font-size:10px; height:10px;
+color:#ffffff;
+background-color:#7B2342;
+
+
+
+	font-weight:bold;
+	
+
+	text-align:right;
+	
+	width:25px;
+
+
+
+}
+
+
+table {
+  border-collapse: collapse;
+  border: 1px solid #38160C;
+  font: normal 11px verdana, arial, helvetica, sans-serif;
+  color: #F6ECF0;
+  background: #641B35;
+  }
+caption {
+  text-align: left;
+  font: normal 11px verdana, arial, helvetica, sans-serif;
+  background: transparent;
+  }
+td, th {
+  border: 1px dashed #B85A7C;
+  padding: .3em;
+  color: #F6ECF0;
+  }
+thead th, tfoot th {
+  font: bold 11px verdana, arial, helvetica, sans-serif;
+  border: 1px solid #A85070;;
+  text-align: left;
+  background: #38160C;
+  color: #F6ECF0;
+  padding-top:6px;
+  }
+tbody td a {
+  background: transparent;
+  text-decoration: none;
+  color: #F6ECF0;
+  }
+tbody td a:hover {
+  background: transparent;
+  color: #FFFFFF;
+  }
+tbody th a {
+  font: normal 11px verdana, arial, helvetica, sans-serif;
+  background: transparent;
+  text-decoration: none;
+  font-weight:normal;
+  color: #F6ECF0;
+  }
+tbody th a:hover {
+  background: transparent;
+  color: #FFFFFF;
+  }
+tbody th, tbody td {
+  vertical-align: top;
+  text-align: left;
+  }
+tfoot td {
+  border: 1px solid #38160C;
+  background: #38160C;
+  padding-top:6px;
+  }
+.odd {
+  background: #7B2342;
+  }
+tbody tr:hover {
+  background: #51152A;
+  }
+tbody tr:hover th,
+tbody tr.odd:hover th {
+  background: #51152A;
+  }

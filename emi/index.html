@@ -1,0 +1,297 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+ <title>EMI Calculator</title>
+    <style type="text/css">
+        <!--
+            A:link          {color: #000099; text-decoration: underline; }
+            A:visited       {color: #009999; text-decoration: underline; }
+            A:active        {color: #009900; text-decoration: underline; }
+            A:hover         {color: red;     text-decoration: none;      }
+            A.light:link    {color: white;   text-decoration: underline; }
+            A.light:visited {color: white;   text-decoration: underline; }
+            A.light:active  {color: #CCCCCC; text-decoration: underline; }
+            A.light:hover   {color: yellow;  text-decoration: none;   }
+        -->
+    </style>
+</head>
+
+<body style="margin: 2 px;" text="#000033" bgcolor="#ffffee" vlink="#009999" alink="#009900" link="#000099">
+
+
+
+<!-- Calculator functions begin -->
+<SCRIPT LANGUAGE="JavaScript1.1" src="js/calculator_l.js"></SCRIPT>
+
+<!-- Calculator functions end -->
+
+<!-- Calculator body begin -->
+<div align="center">
+<p><font face="Arial, Helvetica, sans-serif" color="0000AA" size=+2>EMI Calculator</font></p>
+<NOSCRIPT>
+                <p>This calculator will only function with browsers which support JavaScript version 1.1 or later.</p>
+            </NOSCRIPT><FONT COLOR="#FFFFEE" SIZE="1">
+            <SCRIPT>
+                <!--
+                if (js_version < 1.1) {
+                // -->
+                    document.write('</FONT><p>This calculator will only function with browsers which support JavaScript version 1.1 or later.</p><FONT COLOR="#FFFFEE" SIZE="1">');
+                <!--
+                }
+                // -->
+            </SCRIPT>
+            <SCRIPT LANGUAGE="JavaScript1.1">
+                document.write('<form action="',thisPage(window.location),'" name="Calculator" method="get" target="_self">');
+            </SCRIPT></FONT>
+            </font>
+
+            <input type="hidden" name="unroundedPayment" value="">
+            <table width="60%" cellspacing="3" cellpadding="3" border="0" BGCOLOR="#FFFFFF">
+                <tr bgcolor="#CCCCCC" align="center">
+                    <td align="center" colspan="3">
+                        <b><font face="Arial, Helvetica, sans-serif" size="-1">
+                        Calculate your monthly payment and the impact of <a href="#extra">extra payments</a></font>
+                        </font></b>
+                    </td>
+
+                </tr>
+                <tr bgcolor="#E6E6E6">
+                    <td align="center" nowrap>
+                        <div align="right">
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+                        Loan amount
+                        </font>
+                        </div>
+                    </td>
+
+                    <td>
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+                        Rs.&nbsp;<INPUT type="text" value="1000.00" size="9" name="loanAmount" onChange="amort.clearPayment();"></font><font face="Arial, Helvetica, sans-serif" size="-2"><input type="button" name="loanAmountHelp" value=" ? " onClick="helpText(this)">&nbsp;(Do not use commas.)
+                        </font>
+                    </td>
+                    <td rowspan="5" align="center" valign="middle" width="137">
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+                        <!-- <textarea cols=18 rows=11 name="helpHelp" wrap="virtual" onClick="helpText(this)" onChange="helpText(this)">Click on "?" to get help on that item.</textarea> -->
+
+                        <b>Click on the "?" next to the input box for an item to get help on that item.</b>
+
+                        </font>
+                    </td>
+                </tr>
+                <tr bgcolor="#F1F1F1">
+                    <td align="center" nowrap>
+                        <div align="right">
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+
+                        Loan term in years or months
+                        </font>
+
+                        </div>
+                    </td>
+                    <td nowrap>
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+                        &nbsp;&nbsp;&nbsp;<INPUT type="text" value="1.00" size="4" name="nrOfYears" onChange="this.form.nrOfMonths.value = Math.round(12 * parseFloat(this.value));  amort.clearPayment();"></font><font face="Arial, Helvetica, sans-serif" size="-2"><input type="button" name="nrOfYearsHelp" value=" ? " onClick="helpText(this)"></font><font face="Arial, Helvetica, sans-serif" size="-1"> years or <INPUT type="text" value="12" size="3" name="nrOfMonths" onChange="this.form.nrOfYears.value = parseFloat(this.value) / 12; amort.clearPayment();"> months
+                        </FONT>
+
+                    </td>
+                </tr>
+
+                <tr bgcolor="#E6E6E6">
+                    <td align="center" nowrap>
+                        <div align="right">
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+                        Interest rate
+                        </font>
+                        </div>
+
+                    </td>
+                    <td nowrap>
+
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+                        &nbsp;&nbsp;&nbsp;<INPUT type="text" value="10.00" size="4" name="interestRate" onChange="amort.clearPayment();"></font><font face="Arial, Helvetica, sans-serif" size="-2"><input type="button" name="interestRateHelp" value=" ? " onClick="helpText(this)"></font><font face="Arial, Helvetica, sans-serif" size="-1">&nbsp;%&nbsp;per&nbsp;year
+                        </FONT>
+                    </td>
+                </tr>
+                <tr bgcolor="#F1F1F1">
+
+                    <td align="center" nowrap>
+                        <div align="right">
+
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+                        Loan start date
+                        </font>
+                        </div>
+                    </td>
+                    <td nowrap>
+                        <font face="Arial, Helvetica, sans-serif" size="-2">
+
+                        &nbsp;&nbsp;<FONT COLOR="#F1F1F1" SIZE="1">
+                        <SCRIPT LANGUAGE='JavaScript'>
+                            document.write('</FONT>',dateSelector('start'),'<FONT COLOR="#F1F1F1" SIZE="1">');
+                        </SCRIPT></FONT>
+
+                        </FONT>
+                    </td>
+                </tr>
+                <tr bgcolor="#E6E6E6">
+                    <td align="center" nowrap>
+                        <div align="right">
+
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+                        <B>Monthly payment</B>
+
+                        </font>
+                        </div>
+                    </td>
+                    <td nowrap>
+                        <B><font face="Arial, Helvetica, sans-serif" size="-1">
+                        Rs.&nbsp;<INPUT type="text" value="" size="6" name="monthlyPayment"></font><font face="Arial, Helvetica, sans-serif" size="-2"><input type="button" name="monthlyPaymentHelp" value=" ? " onClick="helpText(this)">
+
+                        </font>
+                        <font face="Arial, Helvetica, sans-serif" size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<INPUT type="button" value="Calculate" onClick="amort.doAmortization('form')">
+
+                        </font></B>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td align="center" colspan="3">
+                        <font face="Arial, Helvetica, sans-serif" size="-2">
+
+                        &nbsp;
+                        </font>
+                    </td>
+
+                </tr>
+                <tr bgcolor="#CCCCCC" align="center">
+                    <td align="center" colspan="3">
+                        <b><font face="Arial, Helvetica, sans-serif" size="-1">
+                        Calculate the impact of extra payments using any combination of the inputs below<a name="extra"></a>
+
+                        </font></b>
+                    </td>
+                </tr>
+
+                <tr bgcolor="#E6E6E6">
+                    <td align="center" nowrap>
+                        <div align="right">
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+                        Adding
+                        </font>
+
+                        </div>
+                    </td>
+                    <td colspan="2">
+
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+                        Rs.&nbsp;<INPUT type="text" value="0.00" size="6" name="monthlyAdditional"></font><font face="Arial, Helvetica, sans-serif" size="-2"><input type="button" name="monthlyAdditionalHelp" value=" ? " onClick="helpText(this)">
+                        </font>
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+                        to your monthly payment
+                        </font>
+
+                    </td>
+                </tr>
+                <tr bgcolor="#F1F1F1">
+
+                    <td align="center" nowrap>
+                        <div align="right">
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+                        Adding
+                        </font>
+                        </div>
+
+                    </td>
+                    <td colspan="2">
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+
+                        Rs.&nbsp;<INPUT type="text" value="0.00" size="6" name="yearlyAdditional"></font><font face="Arial, Helvetica, sans-serif" size="-2"><input type="button" name="yearlyAdditionalHelp" value=" ? " onClick="helpText(this)">
+                        </font>
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+                        as an extra yearly payment every
+                        </font>
+
+                        <font face="Arial, Helvetica, sans-serif" size="-2"><FONT COLOR="#F1F1F1" SIZE="1">
+                        <SCRIPT LANGUAGE='JavaScript'>
+                            document.write('</FONT>',dateSelector('yearlyAdditional'),'<FONT COLOR="#F1F1F1" SIZE="1">');
+                        </SCRIPT></FONT>
+                        </font>
+
+                    </td>
+                </tr>
+                <tr bgcolor="#E6E6E6">
+                    <td align="center" nowrap>
+                        <div align="right">
+
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+                        Adding
+                        </font>
+                        </div>
+
+                    </td>
+                    <td colspan="2">
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+                        Rs.&nbsp;<INPUT type="text" value="0.00" size="6" name="oneAdditional"></font><font face="Arial, Helvetica, sans-serif" size="-2"><input type="button" name="oneAdditionalHelp" value=" ? " onClick="helpText(this)">
+
+                        </font>
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+                        as a one time payment in
+                        </font>
+                        <font face="Arial, Helvetica, sans-serif" size="-2">
+
+                        <FONT COLOR="#E6E6E6" SIZE="1">
+                        <SCRIPT LANGUAGE='JavaScript'>
+                            document.write('</FONT>',dateSelector('oneAdditional'),'<FONT COLOR="#E6E6E6" SIZE="1">');
+                        </SCRIPT></FONT>
+                        </font>
+
+                    </td>
+                </tr>
+                <tr bgcolor="#E6E6E6">
+                    <td align="center" nowrap>
+                        <div align="right">
+
+                        <font face="Arial, Helvetica, sans-serif" size="-1">
+                        <B>Changes paid-off date to</B>
+                        </font>
+
+                        </div>
+                    </td>
+                    <td colspan="2" nowrap>
+                        <B><font face="Arial, Helvetica, sans-serif" size="-1">
+                        <INPUT type="text" value="" size="12" name="paidOffDate"></font><font face="Arial, Helvetica, sans-serif" size="-2"><input type="button" name="paidOffDateHelp" value=" ? " onClick="helpText(this)">
+
+                        </font>
+                        <font face="Arial, Helvetica, sans-serif" size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<INPUT type="button" value="Calculate" onClick="amort.doAmortization('term')">
+                        </font></B>
+
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td align="center" colspan="3">
+                        <font face="Arial, Helvetica, sans-serif" size="-2">
+                        &nbsp;
+
+                        </font>
+                    </td>
+
+                </tr><FONT COLOR="#FFFFFF" SIZE="1">
+                <SCRIPT LANGUAGE="JavaScript1.1">
+                    <!--
+                    amort = new amortizationTable(document.Calculator);
+                    // -->
+                    document.write('</FONT>',amort.tableDisplayer(),'<FONT COLOR="#FFFFFF" SIZE="1">');
+                </SCRIPT></FONT>
+            </table>
+        </form>
+
+<!-- Calculator body end -->
+
+
+        </td>
+    </tr>
+
+</table>
+</center>
+</body>
+</html>
+
